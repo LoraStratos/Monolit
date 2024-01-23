@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Главная{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+    <div>
+        {% if user.is_authenticated %}
+        <nav>
+            <a href="{% url 'index' %}"><p>Главная</p></a>
+            <a href="{% url 'service' %}"><p>Услуги/Товары</p></a>
+            <a href="{% url 'profile' user.pk %}"><p>Профиль</p></a>
+            <a href="{% url 'logout' %}"><p>Выйти</p></a>
+        </nav>
+        {% else %}
+        <nav>
+            <a href="{% url 'index' %}"><p>Главная</p></a>
+            <a href="{% url 'service' %}"><p>Услуги/Товары</p></a>
+            <a href="{% url 'register' %}"><p>Зарегистрироваться</p></a>
+            <a href="{% url 'login' %}"><p>Войти</p></a>
+        </nav>
+        {% endif %}
+    </div>
+    <div>{% block content %}{% endblock %}</div>
+</body>
+</html>
