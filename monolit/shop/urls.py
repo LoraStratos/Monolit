@@ -4,9 +4,11 @@ from .views import *
 
 urlpatterns = [
     path('', IndexView.as_view(), name='index'),
-    path('service/', AllProduct.as_view(), name='service'),
-    path('register/', Registration.as_view(), name='register'),
-    path('login/', LoginViewMy.as_view(), name='login'),
+    path('service/<pk>', ProductDetail.as_view(), name='details'),
+    path('service', AllProduct.as_view(), name='service'),
+    path('register', Registration.as_view(), name='register'),
+    path('login', LoginViewMy.as_view(), name='login'),
     path('profile/<pk>', ProfileView.as_view(), name='profile'),
-    path('logout/', LogoutView.as_view(), name='logout'),
+    path('logout', LogoutView.as_view(), name='logout'),
+    path('search_result', SearchResult.as_view(), name='result')
 ]

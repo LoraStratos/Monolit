@@ -10,3 +10,4 @@ class CustomUser (AbstractUser):
 class Product (models.Model):
     title = models.CharField(max_length=200, blank=False)
     img = models.ImageField(upload_to='image', null=True, blank=True, default=None)
+    description = models.TextField(help_text="Введите описание товара")
