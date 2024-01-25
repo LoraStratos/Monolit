@@ -9,7 +9,7 @@
     <hr>
 
     <a href="{% url 'details' product.pk %}"><h1>{{ product.title }}</h1></a>
-    <p><img src="{{ product.img }}" style="height: 200px; width: 200px"></p>
+    <p><img src="{{ product.img.url }}" style="height: 200px; width: 200px"></p>
     <br><br>
     <p>{{ product.description }}</p>
     <br><br>
