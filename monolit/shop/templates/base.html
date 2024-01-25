@@ -5,17 +5,19 @@
     {% block title %}{% endblock %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
-<body>
-    <div>
+<body style="margin-left: 20px">
+    <div style="margin: 20px 0">
         {% if user.is_authenticated %}
-        <nav>
+        <nav style="display:flex; justify-content:center; align-items:center; gap:30px">
+            <a href="{% url 'index' %}"><p style="color:green;">Фирма</p></a>
             <a href="{% url 'index' %}"><p>Главная</p></a>
             <a href="{% url 'service' %}"><p>Услуги/Товары</p></a>
             <a href="{% url 'profile' user.pk %}"><p>Профиль</p></a>
             <a href="{% url 'logout' %}"><p>Выйти</p></a>
         </nav>
         {% else %}
-        <nav>
+        <nav style="display:flex; justify-content:center; align-items:center; gap:30px">
+            <a href="{% url 'index' %}"><p style="color:green;">Фирма</p></a>
             <a href="{% url 'index' %}"><p>Главная</p></a>
             <a href="{% url 'service' %}"><p>Услуги/Товары</p></a>
             <a href="{% url 'register' %}"><p>Зарегистрироваться</p></a>

@@ -2,5 +2,20 @@
 
 {% block title %}<title>{% product.title %}</title>{% endblock %}
 {% block content %}
+    <h3>Поиск</h3>
+    <form action="{% url 'result' %}" method="get">
+        <input name="search" type="text" placeholder="Найти...">
+    </form>
+    <hr>
+
+    <a href="{% url 'details' product.pk %}"><h1>{{ product.title }}</h1></a>
+    <p><img src="{{ product.img }}" style="height: 200px; width: 200px"></p>
+    <br><br>
+    <p>{{ product.description }}</p>
+    <br><br>
+
+    <div style="display:flex; align-items:center; flex-direction:center; background-color:red; width:40px; height:20px">
+        <p style="color:white; text-size:14px;">Заказать</p>
+    </div>
 
 {% endblock %}

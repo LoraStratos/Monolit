@@ -2,22 +2,23 @@
 
 {% block title %}<title>Главная</title>{% endblock %}
 {% block content %}
+    <h1>Добро пожаловать на сайт нашей фирмы</h1>
+    <p>Наша не очень преуспевающая фирма предоставляет товары и услуги для вас :)</p>
+    <hr>
 
+    <h3>Поиск</h3>
+    <form action="{% url 'result' %}" method="get">
+        <input name="search" type="text" placeholder="Найти...">
+    </form>
+    <hr>
 
-    {% block pagination %}
-            {% if is_paginated %}
-                <div class="pagination">
-                    <span class="page-links">
-                    {% if page_obj.has_previous%}
-                        <a href="{{request.path}}?page={{page_obj.previous_page_number}}"><--</a>
-                    {% endif %}
-                    <span class="page-current">Страница {{page_obj.number}} из {{page_obj.paginator.num_pages}}.</span>
-                    {% if page_obj.has_next %}
-                        <a href="{{request.path}}?page={{page_obj.next_page_number}}">--></a>
-                    {% endif %}
-                    </span>
-                </div>
-            {% endif%}
-        {% endblock %}
+    <h3>Последние 5 товаров</h3>
+    {% for product in object_list %}
+        <h4>{{ product.title }}</h4>
+        <p><img src="{{ product.img }}" style="height: 200px; width: 200px"></p>
+        <br><br>
+        <a href="{% url 'details' product.pk %}"><p>Перейти к товару</p></a>
+        <hr>
+    {% endfor %}
 {% endblock %}
 
