@@ -18,6 +18,8 @@ class IndexView (ListView):
 
 class ProductDetail(DetailView):
     model = Product
+    template_name = 'details.html'
+    success_url = reverse_lazy('details')
     def details(self):
         return render(self, 'details.html')
 
